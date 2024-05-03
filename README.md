@@ -36,7 +36,8 @@
 <p>Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más información.</p>
 
 <h3 align="left">Agradecimientos:</h3>
-<p>Agradecemos a TodoCode por ofrecer esta formación de alta calidad en Programación Orientada a Objetos y proporcionar la inspiración para este proyecto.</p>
+<p> Agradecemos a <a href="https://github.com/todocodeacademy">TodoCode</a> por ofrecer esta formación de alta calidad en Programación Orientada a Objetos y proporcionar la inspiración para este proyecto.</p>
+
 
 <h3 align="left">Conéctate conmigo:</h3>
 <p align="left">
