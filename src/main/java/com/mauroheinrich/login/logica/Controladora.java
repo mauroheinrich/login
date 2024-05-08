@@ -30,8 +30,8 @@ public class Controladora {
                 }
             }
             else{
-                mensaje="Usuario no encotnrado";
-                return mensaje;
+                mensaje="Usuario no encontrado";
+               
             }
         }
         
