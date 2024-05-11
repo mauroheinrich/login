@@ -2,12 +2,13 @@
 package com.mauroheinrich.login.igu;
 
 import com.mauroheinrich.login.logica.Controladora;
+import com.mauroheinrich.login.logica.Usuario;
 
 
-public class Principal extends javax.swing.JFrame {
+public class LoginInicial extends javax.swing.JFrame {
 
       Controladora control;
-    public Principal() {
+    public LoginInicial() {
         initComponents();
           control = new Controladora();
     }
@@ -152,7 +153,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,9 +183,29 @@ public class Principal extends javax.swing.JFrame {
         
         String usuario = txtUsuario.getText();
         String contrasenia = txtContrasenia.getText();
-        String mensaje = control.validarUsuario(usuario, contrasenia);
+        Usuario usr = control.validarUsuario(usuario, contrasenia);
+        if (usr != null){
+            String rol =  usr.getUnRol().getNombreRol();
+            
+            if (rol.equals("admin")){
+                PrincipalAdmin pAdmin = new PrincipalAdmin(control, usr);
+                pAdmin.setVisible(true);
+                pAdmin.setLocationRelativeTo(null);
+                this.dispose();
+            }
+            if(rol.equals("user")){
+                PrincipalUser pUser = new PrincipalUser(control, usr);
+                pUser.setVisible(true);
+                pUser.setLocationRelativeTo(null);
+                this.dispose();
+            }
+        }
+        else{
+            txtMensaje.setText("Usuario o contraseña incorrectos");
+        }
+       
         
-        txtMensaje.setText(mensaje);
+        
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
